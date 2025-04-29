@@ -31,7 +31,14 @@ GROUP BY customer
 ORDER BY total_spent DESC
 LIMIT 1;
 
--- 3. Calculate average order amount for the last three months
+-- 3. Calculate average order amount for the last 3 months before the latest date
+WITH latest_date AS (
+    SELECT MAX(order_date) as max_date
+    FROM orders
+)
 SELECT AVG(amount) as avg_order_amount
 FROM orders
-WHERE order_date >= date('2024-01-01'); 
+WHERE order_date >= date(
+    (SELECT max_date FROM latest_date),
+    '-3 months'
+); 

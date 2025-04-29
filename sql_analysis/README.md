@@ -31,8 +31,9 @@ The table contains sample sales data with the following records:
    - Groups data by customer and sums order amounts
 
 3. **Average Order Amount (Last 3 Months)**
-   - Calculates the average order amount for the last three months
-   - Uses date filtering to select recent orders
+   - Calculates the average order amount for the last three months before the latest date in the table
+   - Uses a CTE to find the latest date and calculates the date range dynamically
+   - Automatically adjusts to new data as it's added to the table
 
 ## How to Run
 
