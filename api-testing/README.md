@@ -9,7 +9,8 @@ api-testing/
 ├── README.md
 ├── .gitignore
 ├── api_test.js
-└── index.html
+├── index.html
+└── mock_data.js
 ```
 
 ## Features
@@ -21,6 +22,7 @@ api-testing/
   - Price non-negative
   - Rating within valid range (0-5)
 - Collects and reports defective products
+- Includes mock data with intentional errors for testing
 
 ## Usage
 
@@ -28,6 +30,9 @@ The script can be run in multiple ways:
 
 1. Using the HTML Interface (Recommended):
    - Open `index.html` in your web browser
+   - Choose data source:
+     - Unchecked: Uses real API data
+     - Checked: Uses mock data with intentional errors
    - Click the "Run API Test" button
    - View the results in both the browser and console
 
@@ -38,12 +43,23 @@ The script can be run in multiple ways:
 
 3. ReqBin or similar API testing tools
 
+## Mock Data
+
+The project includes mock data (`mock_data.js`) with intentional errors for testing:
+- Empty product title
+- Negative product price
+- Rating exceeding 5
+- Missing rating field
+
+This allows testing the validation logic without relying on the API.
+
 ## Output
 
 The script will output:
 - Total number of products
 - Number of defective products
 - Detailed list of defective products with their IDs and specific defects
+- Error summary showing the count of each type of error
 
 ## Requirements
 
