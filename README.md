@@ -1,32 +1,25 @@
-# AI Homework Projects
+# AI Homework
 
-This repository contains various web development projects created as part of AI-assisted homework.
+This repository contains various projects and assignments.
 
 ## Projects
 
 ### 1. Expense Calculator
-A modern web application for tracking and analyzing expenses. Built with HTML, CSS, and vanilla JavaScript.
+A web-based expense tracking and calculation tool.
+[View Expense Calculator](expense-calculator/)
 
-[View Expense Calculator →](expense-calculator/)
+### 2. API Testing
+A JavaScript implementation for testing the Fake Store API.
+[View API Testing](api-testing/)
 
-Features:
-- Add and remove expense entries with categories and amounts
-- Calculate total expenses and daily averages
-- View top spending categories
-- Modern dark theme design
-- No external dependencies
+## Structure
+```
+aiHomework/
+├── README.md
+├── expense-calculator/
+│   └── [Expense Calculator Project Files]
+└── api-testing/
+    └── [API Testing Project Files]
+```
 
-## Getting Started
-
-Each project is self-contained in its own directory with its own README file. Navigate to the project directory you're interested in and follow the setup instructions in its README.
-
-## Technologies Used
-
-- HTML5
-- CSS3
-- JavaScript (ES6+)
-- No external frameworks or libraries
-
-## License
-
-MIT License 
+Each project has its own README with specific details about its functionality and usage. 
