@@ -7,8 +7,8 @@ This project contains a JavaScript implementation for testing the Fake Store API
 ```
 api-testing/
 ├── README.md
-└── src/
-    └── api_test.js
+├── .gitignore
+└── api_test.js
 ```
 
 ## Features
