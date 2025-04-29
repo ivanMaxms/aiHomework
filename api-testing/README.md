@@ -26,13 +26,15 @@ api-testing/
 The script can be run in multiple ways:
 
 1. Browser Console:
-   - Open browser developer tools
-   - Copy and paste the contents of `api_test.js`
+   - Open browser developer tools (F12 or right-click -> Inspect)
+   - Go to the "Console" tab
+   - Copy the entire contents of `api_test.js`
+   - Paste the code into the console's input area (where you see the `>` prompt)
    - Press Enter to execute
 
 2. Node.js:
    ```bash
-   node src/api_test.js
+   node api_test.js
    ```
 
 3. ReqBin or similar API testing tools
