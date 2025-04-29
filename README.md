@@ -22,4 +22,4 @@ aiHomework/
     └── [API Testing Project Files]
 ```
 
-Each project has its own README with specific details about its functionality and usage. 
+Each project has its own README with specific details about its functionality and usage.
