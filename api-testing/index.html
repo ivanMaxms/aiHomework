@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Store API Testing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        #output {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            white-space: pre-wrap;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fake Store API Testing</h1>
+    <button onclick="runTest()">Run API Test</button>
+    <div id="output"></div>
+
+    <script>
+        // Function to log to both console and page
+        function log(message) {
+            console.log(message);
+            const output = document.getElementById('output');
+            output.textContent += message + '\n';
+        }
+
+        // Modified version of our test function
+        async function testFakeStoreAPI() {
+            try {
+                log('Starting API test...');
+                const response = await fetch('https://fakestoreapi.com/products');
+                
+                if (response.status !== 200) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const products = await response.json();
+                const defectiveProducts = [];
+                
+                products.forEach(product => {
+                    const defects = validateProduct(product);
+                    if (defects.length > 0) {
+                        defectiveProducts.push({
+                            id: product.id,
+                            title: product.title,
+                            defects: defects
+                        });
+                    }
+                });
+                
+                log(`Total products: ${products.length}`);
+                log(`Defective products: ${defectiveProducts.length}`);
+                log('Defective products details:');
+                log(JSON.stringify(defectiveProducts, null, 2));
+                
+                return {
+                    totalProducts: products.length,
+                    defectiveProducts: defectiveProducts
+                };
+                
+            } catch (error) {
+                log('Error testing API: ' + error.message);
+                throw error;
+            }
+        }
+
+        function validateProduct(product) {
+            const defects = [];
+            
+            if (!product.title || product.title.trim() === '') {
+                defects.push('Missing or empty title');
+            }
+            
+            if (product.price < 0) {
+                defects.push('Negative price');
+            }
+            
+            if (!product.rating || typeof product.rating.rate === 'undefined') {
+                defects.push('Missing rating');
+            } else if (product.rating.rate > 5) {
+                defects.push('Rating exceeds 5');
+            }
+            
+            return defects;
+        }
+
+        async function runTest() {
+            const output = document.getElementById('output');
+            output.textContent = ''; // Clear previous output
+            try {
+                await testFakeStoreAPI();
+                log('Test completed successfully');
+            } catch (error) {
+                log('Test failed: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html> 

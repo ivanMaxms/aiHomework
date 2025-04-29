@@ -8,7 +8,8 @@ This project contains a JavaScript implementation for testing the Fake Store API
 api-testing/
 ├── README.md
 ├── .gitignore
-└── api_test.js
+├── api_test.js
+└── index.html
 ```
 
 ## Features
@@ -25,12 +26,10 @@ api-testing/
 
 The script can be run in multiple ways:
 
-1. Browser Console:
-   - Open browser developer tools (F12 or right-click -> Inspect)
-   - Go to the "Console" tab
-   - Copy the entire contents of `api_test.js`
-   - Paste the code into the console's input area (where you see the `>` prompt)
-   - Press Enter to execute
+1. Using the HTML Interface (Recommended):
+   - Open `index.html` in your web browser
+   - Click the "Run API Test" button
+   - View the results in both the browser and console
 
 2. Node.js:
    ```bash
